@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav container">
+        <h1 class="text-display-3">KindeAuth</h1>
+        <div>
+          <% if (!isAuthenticated) { %>
+
+          <a class="btn btn-ghost sign-in-btn" href="/login">Sign in</a>
+          <a href="/register" class="btn btn-dark">Sign up</a>
+          <% } else { %>
+          <div class="profile-blob">
+            <% if (picture) { %>
+            <img
+              class="avatar"
+              src="<%- picture %>"
+              alt="user profile avatar"
+              referrerPolicy="no-referrer"
+            />
+            <% } else { %>
+            <div class="avatar"><%- given_name[0] %> <%- family_name[0] %></div>
+            <% } %>
+            <div>
+              <p class="text-heading-2"><%- given_name %> <%- family_name %></p>
+
+              <a href="/logout" class="text-subtle">Log out</a>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </nav>
+    </header>
+    <main><%- body %></main>
+  </body>
+</html>
