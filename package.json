@@ -4,16 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=production node --experimental-specifier-resolution=node ./server/bin/www",
-    "dev": "NODE_ENV=development node --experimental-specifier-resolution=node ./server/bin/www",
-    "prod": "NODE_ENV=production node --experimental-specifier-resolution=node ./server/bin/www",
+    "start": "NODE_ENV=production node --experimental-specifier-resolution=node ./server/bin/www.js",
+    "dev": "NODE_ENV=development node --experimental-specifier-resolution=node -r dotenv/config ./server/bin/www.js",
     "watch:dev": "nodemon"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
   },
   "dependencies": {
     "@kinde-oss/kinde-typescript-sdk": "^2.2.1",
     "cookie-parser": "^1.4.6",
     "debug": "^4.3.4",
-    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
